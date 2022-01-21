@@ -1,0 +1,15 @@
+# Builds
+Builds/
+builds/
+
+# Testing Folders
+Test/
+Tests/
+test/
+tests/
+
+# Logs
+Logs/
+
+# Godot-specific ignores
+.import/

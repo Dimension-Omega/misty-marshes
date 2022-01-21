@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://data/elements/frog/frog_white.png" type="Texture" id=1]
+[ext_resource path="res://data/elements/frog/frog_black.png" type="Texture" id=2]
+[ext_resource path="res://data/elements/frog/frog.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 50 )
+
+[node name="Frog" type="KinematicBody2D" groups=["duality"]]
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource( 1 )
+
+[node name="FrogBlack" type="Sprite" parent="." groups=["black"]]
+position = Vector2( 13, -18 )
+texture = ExtResource( 2 )
+
+[node name="FrogWhite" type="Sprite" parent="." groups=["white"]]
+position = Vector2( 83, -154 )
+texture = ExtResource( 1 )
