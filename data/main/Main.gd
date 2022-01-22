@@ -9,6 +9,12 @@ var levels : Dictionary = {
 	}
 }
 
+onready var tween : Tween = $Tween
+onready var timer : Timer = $Timer
+
+const WHITE := Color.white
+const TRANSPARENT := Color(1, 1, 1, 0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$ColorRect.visible = true
@@ -33,6 +39,9 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 
 func set_world(color: String) -> void:
 	assert(color in ['white', 'black'])
+	set_world_with_modulate(color, 0.3)
+
+func set_world_with_visibility(color: String) -> void:
 	var whiteNodes = get_tree().get_nodes_in_group('white')
 	var blackNodes = get_tree().get_nodes_in_group('black')
 	var toWhite : bool = color == 'white'
@@ -42,9 +51,38 @@ func set_world(color: String) -> void:
 	for blackNode in blackNodes:
 		#print('black: ', blackNode.name)
 		blackNode.visible = not toWhite
-	
+	get_tree().call_group('duality', 'the_world_is_changing', color)
 	get_tree().call_group('duality', 'duality', color)
 	world_color = color
+
+func set_world_with_modulate(color: String, duration: float) -> void:
+	var whiteNodes = get_tree().get_nodes_in_group('white')
+	var blackNodes = get_tree().get_nodes_in_group('black')
+	var toWhite : bool = color == 'white'
+	
+	var _tweenRemoveError = tween.remove_all()
+
+	for whiteNode in whiteNodes:
+		#print('white: ', whiteNode.name)
+		whiteNode.visible = true
+		var _err = tween.interpolate_property(whiteNode, 'modulate', whiteNode.modulate, WHITE if toWhite else TRANSPARENT, duration)
+	for blackNode in blackNodes:
+		#print('black: ', blackNode.name)
+		blackNode.visible = true
+		var _err = tween.interpolate_property(blackNode, 'modulate', blackNode.modulate, WHITE if not toWhite else TRANSPARENT, duration)
+	
+	# print('The world is changing to ', color)
+	get_tree().call_group('duality', 'the_world_is_changing', color)
+	world_color = color
+	var _tweenStartError = tween.start()
+	
+	timer.start(duration)
+	if not timer.is_connected("timeout", self, '_on_Timer_timeout'):
+		var _connErr = timer.connect("timeout", self, '_on_Timer_timeout')
+
+func _on_Timer_timeout() -> void:
+	# print('Called duality() with ', world_color)
+	get_tree().call_group('duality', 'duality', world_color)
 
 func set_level(levelNumber: int) -> void:
 	free_level()

@@ -55,3 +55,8 @@ __meta__ = {
 autoplay = "start_game"
 anims/RESET = SubResource( 1 )
 anims/start_game = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

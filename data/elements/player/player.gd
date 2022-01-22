@@ -48,12 +48,15 @@ func set_direction(inputVelocityX: float) -> void:
 	#$InteractSensor.scale.x = -1 if inputVelocityX < 0 else 1
 
 # Duality Section
-func duality(color: String) -> void:
+func the_world_is_changing(color: String) -> void:
 	var isWhite := color == 'white'
-	defer_world_collisions(not isWhite)
 	var previousSprite = sprite
 	sprite = $PlayerWhite if isWhite else $PlayerBlack
 	sprite.flip_h = previousSprite.flip_h
+
+func duality(color: String) -> void:
+	var isWhite := color == 'white'
+	defer_world_collisions(not isWhite)
 
 func defer_world_collisions(collideWithBlack: bool) -> void:
 	call_deferred('world_collisions', collideWithBlack)

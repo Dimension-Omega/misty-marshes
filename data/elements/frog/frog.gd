@@ -2,12 +2,15 @@ extends KinematicBody2D
 
 export var trigger_node : NodePath
 
-func duality(color: String) -> void:
+var world_color: String
+
+func the_world_is_changing(color: String) -> void:
 	var _isWhite := color == 'white'
 	$AnimationPlayer.play("RESET")
+	world_color = color
 
 func interact() -> void:
-	if $FrogBlack.visible:
+	if world_color == 'black':
 		$AnimationPlayer.play("InteractBlack")
 	else:
 		var triggerNode = get_node(trigger_node)
