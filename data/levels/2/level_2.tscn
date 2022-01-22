@@ -68,7 +68,7 @@ shape = SubResource( 1 )
 polygon = PoolVector2Array( 428, -363, 1033, -363, 1039, 488, 827, 482, 818, 276, 716, 169, 524, 135, 439, 50 )
 
 [node name="TopPolygon" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -1102, -702, 6, -690, -14, -326, -107, -278, -220, -312, -313, -400, -353, -505, -557, -457, -1035, -482 )
+polygon = PoolVector2Array( -1102, -702, 6, -690, -14, -326, -107, -278, -220, -312, -313, -400, -353, -505, -523, -456, -546, -380, -611, -360, -667, -408, -679, -465, -1035, -482 )
 
 [node name="LeftPolygon" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -1029, -75, -446, -97, -483, 115, -1023, 126 )

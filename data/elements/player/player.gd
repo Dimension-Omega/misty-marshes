@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	velocity = remainingVelocity
 	time_since_last_jump += delta
 	if is_on_floor():
-		if airtime > 0: print(airtime)
 		airtime = 0
 	else:
 		airtime += delta

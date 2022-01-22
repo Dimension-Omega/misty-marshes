@@ -10,7 +10,7 @@ func _ready() -> void:
 		$SwitchOff.add_to_group('black')
 		$SwitchOn.add_to_group('black')
 
-func the_world_is_changing(color: String) -> void:
+func the_world_is_changing(_color: String) -> void:
 	set_to(is_on)
 
 func duality(color: String) -> void:
