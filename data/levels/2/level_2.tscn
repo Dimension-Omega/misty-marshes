@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://data/levels/2/level_2_fg_black.png" type="Texture" id=1]
 [ext_resource path="res://data/levels/2/level_2_bg_black.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://data/elements/player/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://data/elements/platforms/PlatformBlack.tscn" type="PackedScene" id=9]
 [ext_resource path="res://data/elements/platforms/PlatformWhite.tscn" type="PackedScene" id=10]
+[ext_resource path="res://data/elements/gates/gate.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1300, 60 )
@@ -81,8 +82,9 @@ shape = SubResource( 2 )
 
 [node name="entities" type="Node2D" parent="."]
 
-[node name="KinematicBody2D" parent="entities" instance=ExtResource( 6 )]
+[node name="Frog" parent="entities" instance=ExtResource( 6 )]
 position = Vector2( -829, -130 )
+trigger_node = NodePath("../Gate")
 
 [node name="OakTree" parent="entities" instance=ExtResource( 7 )]
 position = Vector2( 215, 308 )
@@ -92,6 +94,13 @@ position = Vector2( -50, 274 )
 
 [node name="PlatformWhite" parent="entities" instance=ExtResource( 10 )]
 position = Vector2( -295, 87 )
+
+[node name="PlatformWhite2" parent="entities" instance=ExtResource( 10 )]
+position = Vector2( 90, -250 )
+
+[node name="Gate" parent="entities" instance=ExtResource( 11 )]
+position = Vector2( 384, 0 )
+initial_pos = 1
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 position = Vector2( -699, 416 )
