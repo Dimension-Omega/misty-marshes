@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://data/elements/platforms/platform_black.png" type="Texture" id=1]
+[ext_resource path="res://data/elements/platforms/platform.tscn" type="PackedScene" id=2]
+
+[node name="PlatformBlack" instance=ExtResource( 2 )]
+collision_layer = 2
+collision_mask = 0
+
+[node name="PlatformBlack" parent="." index="1" groups=["black"]]
+texture = ExtResource( 1 )

@@ -16,12 +16,18 @@ func _ready():
 	yield(get_tree().create_timer(0.1), 'timeout')
 	set_world(world_color)
 
+func _unhandled_input(event) -> void:
+	if event.is_action_pressed("duality"):
+		set_world('white' if world_color == 'black' else 'black')
+
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if event.echo or not event.pressed: return
 	if event.scancode == KEY_1:
 		set_world('black')
 	elif event.scancode == KEY_2:
 		set_world('white')
+	elif event.scancode == KEY_I:
+		get_tree().call_group('interactable', 'interact')
 	elif event.scancode == KEY_0:
 		set_world('white' if world_color == 'black' else 'black')
 
@@ -31,10 +37,10 @@ func set_world(color: String) -> void:
 	var blackNodes = get_tree().get_nodes_in_group('black')
 	var toWhite : bool = color == 'white'
 	for whiteNode in whiteNodes:
-		print('white: ', whiteNode.name)
+		#print('white: ', whiteNode.name)
 		whiteNode.visible = toWhite
 	for blackNode in blackNodes:
-		print('black: ', blackNode.name)
+		#print('black: ', blackNode.name)
 		blackNode.visible = not toWhite
 	
 	get_tree().call_group('duality', 'duality', color)
