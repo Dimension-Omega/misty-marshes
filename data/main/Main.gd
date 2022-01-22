@@ -13,7 +13,7 @@ onready var tween : Tween = $Tween
 onready var timer : Timer = $Timer
 
 const USING_CUSTOM_CHANGES : bool = false
-const DEFAULT_CHANGE_WORLD_DURATION := 0.2
+const DEFAULT_CHANGE_WORLD_DURATION := 1
 const EXTRA_COYOTE_TIME := 0.08
 const WHITE := Color.white
 const TRANSPARENT := Color(1, 1, 1, 0)
@@ -92,7 +92,7 @@ func set_world_element(element: Node, toWhite: bool, duration: float) -> void:
 		elif element.owner is CustomChange:
 			dur = element.owner.duration
 			delay = element.owner.delay
-	var _err = tween.interpolate_property(element, 'modulate', element.modulate, WHITE if toWhite else TRANSPARENT, dur, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
+	var _err = tween.interpolate_property(element, 'modulate', element.modulate, WHITE if toWhite else TRANSPARENT, dur, Tween.TRANS_BOUNCE, Tween.EASE_OUT, delay)
 
 func _on_Timer_timeout() -> void:
 	# print('Called duality() with ', world_color)
