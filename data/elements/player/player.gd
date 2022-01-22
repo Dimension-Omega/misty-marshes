@@ -53,17 +53,20 @@ func the_world_is_changing(color: String) -> void:
 	var previousSprite = sprite
 	sprite = $PlayerWhite if isWhite else $PlayerBlack
 	sprite.flip_h = previousSprite.flip_h
+	defer_world_collisions(color == 'black', true, false)
 
 func duality(color: String) -> void:
-	var isWhite := color == 'white'
-	defer_world_collisions(not isWhite)
+	#defer_world_collisions(not isWhite)
+	defer_world_collisions(color == 'black', false, true)
 
-func defer_world_collisions(collideWithBlack: bool) -> void:
-	call_deferred('world_collisions', collideWithBlack)
+func defer_world_collisions(collideWithBlack: bool, onlyAdd: bool = false, onlyRemove: bool = false) -> void:
+	call_deferred('world_collisions', collideWithBlack, onlyAdd, onlyRemove)
 
-func world_collisions(collideWithBlack: bool) -> void:
-	collision_mask &= ~(1 << (WHITE_LAYER if collideWithBlack else BLACK_LAYER))
-	collision_mask |= 1 << (BLACK_LAYER if collideWithBlack else WHITE_LAYER)
+func world_collisions(collideWithBlack: bool, onlyAdd: bool = false, onlyRemove: bool = false) -> void:
+	if not onlyAdd:
+		collision_mask &= ~(1 << (WHITE_LAYER if collideWithBlack else BLACK_LAYER))
+	if not onlyRemove:
+		collision_mask |= 1 << (BLACK_LAYER if collideWithBlack else WHITE_LAYER)
 
 # Interactable
 func _on_InteractSensor_body_entered(body: Node):
