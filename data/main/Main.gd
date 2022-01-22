@@ -12,6 +12,9 @@ var levels : Dictionary = {
 onready var tween : Tween = $Tween
 onready var timer : Timer = $Timer
 
+const USING_CUSTOM_CHANGES : bool = false
+const DEFAULT_CHANGE_WORLD_DURATION := 0.2
+const EXTRA_COYOTE_TIME := 0.08
 const WHITE := Color.white
 const TRANSPARENT := Color(1, 1, 1, 0)
 
@@ -19,8 +22,8 @@ const TRANSPARENT := Color(1, 1, 1, 0)
 func _ready():
 	$ColorRect.visible = true
 	load_level(2)
-	yield(get_tree().create_timer(0.1), 'timeout')
-	set_world(world_color)
+	yield(get_tree().create_timer(0.05), 'timeout')
+	set_world_with_modulate(world_color, 0)
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("duality"):
@@ -39,7 +42,7 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 
 func set_world(color: String) -> void:
 	assert(color in ['white', 'black'])
-	set_world_with_modulate(color, 0.3)
+	set_world_with_modulate(color, DEFAULT_CHANGE_WORLD_DURATION)
 
 func set_world_with_visibility(color: String) -> void:
 	var whiteNodes = get_tree().get_nodes_in_group('white')
@@ -64,21 +67,32 @@ func set_world_with_modulate(color: String, duration: float) -> void:
 
 	for whiteNode in whiteNodes:
 		#print('white: ', whiteNode.name)
-		whiteNode.visible = true
-		var _err = tween.interpolate_property(whiteNode, 'modulate', whiteNode.modulate, WHITE if toWhite else TRANSPARENT, duration)
+		set_world_element(whiteNode, toWhite, duration)
 	for blackNode in blackNodes:
 		#print('black: ', blackNode.name)
-		blackNode.visible = true
-		var _err = tween.interpolate_property(blackNode, 'modulate', blackNode.modulate, WHITE if not toWhite else TRANSPARENT, duration)
+		set_world_element(blackNode, not toWhite, duration)
 	
 	# print('The world is changing to ', color)
 	get_tree().call_group('duality', 'the_world_is_changing', color)
 	world_color = color
 	var _tweenStartError = tween.start()
 	
-	timer.start(duration)
+	timer.start(duration + EXTRA_COYOTE_TIME)
 	if not timer.is_connected("timeout", self, '_on_Timer_timeout'):
 		var _connErr = timer.connect("timeout", self, '_on_Timer_timeout')
+
+func set_world_element(element: Node, toWhite: bool, duration: float) -> void:
+	element.visible = true
+	var dur := duration
+	var delay : float = 0
+	if USING_CUSTOM_CHANGES:
+		if element is CustomChange:
+			dur = element.duration
+			delay = element.delay
+		elif element.owner is CustomChange:
+			dur = element.owner.duration
+			delay = element.owner.delay
+	var _err = tween.interpolate_property(element, 'modulate', element.modulate, WHITE if toWhite else TRANSPARENT, dur, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
 
 func _on_Timer_timeout() -> void:
 	# print('Called duality() with ', world_color)
