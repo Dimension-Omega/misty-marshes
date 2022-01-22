@@ -104,7 +104,7 @@ position = Vector2( 384, 0 )
 initial_pos = 1
 
 [node name="Gate2" parent="entities" instance=ExtResource( 11 )]
-position = Vector2( 692, -376 )
+position = Vector2( 636, -373 )
 initial_pos = 1
 
 [node name="Switch" parent="entities" instance=ExtResource( 12 )]
