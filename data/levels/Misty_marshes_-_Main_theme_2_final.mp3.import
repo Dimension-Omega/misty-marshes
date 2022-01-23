@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Misty_marshes_-_Main_theme_2_final.mp3-66d4d44eead27bb443aff6baa549eac2.mp3str"
+
+[deps]
+
+source_file="res://data/levels/Misty_marshes_-_Main_theme_2_final.mp3"
+dest_files=[ "res://.import/Misty_marshes_-_Main_theme_2_final.mp3-66d4d44eead27bb443aff6baa549eac2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

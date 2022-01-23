@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://data/levels/3/level_3_bg_black.png" type="Texture" id=1]
 [ext_resource path="res://data/levels/2/level_2.gd" type="Script" id=2]
 [ext_resource path="res://data/levels/3/level_3_fg_black.png" type="Texture" id=3]
+[ext_resource path="res://data/levels/Misty_marshes_-_Main_theme_2_final.mp3" type="AudioStream" id=4]
 [ext_resource path="res://data/elements/switches/switch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://data/elements/target/target.tscn" type="PackedScene" id=6]
 [ext_resource path="res://data/elements/gates/gate.tscn" type="PackedScene" id=7]
@@ -68,7 +69,7 @@ shape = SubResource( 1 )
 polygon = PoolVector2Array( 625, -223, 1033, -241, 1041, 197, 931, 127, 701, 135, 603, 81, 579, -55, 597, -153 )
 
 [node name="TopPolygon" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 6, -690, 8, -407, -112, -355, -248, -359, -488, -367, -490, -461, -316, -467, -280, -507, -264, -713 )
+polygon = PoolVector2Array( 26, -610, 32, -203, -452, -197, -460, -279, -268, -285, -265, -607 )
 
 [node name="LeftPolygon" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -1040, 6, -744, 8, -721, 131, -1046, 208 )
@@ -106,7 +107,7 @@ only_on_black = true
 position = Vector2( 933, -289 )
 
 [node name="Secret" parent="entities" instance=ExtResource( 14 )]
-position = Vector2( -382, -559 )
+position = Vector2( -368, -369 )
 
 [node name="boulder" parent="entities" instance=ExtResource( 11 )]
 position = Vector2( -804, 329 )
@@ -126,3 +127,8 @@ position = Vector2( 636, 442 )
 
 [node name="Player" parent="." instance=ExtResource( 13 )]
 position = Vector2( -823, -99 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+bus = "Music"

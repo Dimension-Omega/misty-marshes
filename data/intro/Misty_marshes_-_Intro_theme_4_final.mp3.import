@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Misty_marshes_-_Intro_theme_4_final.mp3-960fccfa8d3dd80c07b09aca9adbf708.mp3str"
+
+[deps]
+
+source_file="res://data/intro/Misty_marshes_-_Intro_theme_4_final.mp3"
+dest_files=[ "res://.import/Misty_marshes_-_Intro_theme_4_final.mp3-960fccfa8d3dd80c07b09aca9adbf708.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

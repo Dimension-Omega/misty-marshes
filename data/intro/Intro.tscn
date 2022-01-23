@@ -8,7 +8,7 @@
 [ext_resource path="res://data/intro/white_universe.png" type="Texture" id=6]
 [ext_resource path="res://data/intro/black_universe.png" type="Texture" id=7]
 [ext_resource path="res://data/intro/Intro.gd" type="Script" id=8]
-[ext_resource path="res://data/intro/Misty_marshes_-_Intro_theme_2.mp3" type="AudioStream" id=9]
+[ext_resource path="res://data/intro/Misty_marshes_-_Intro_theme_4_final.mp3" type="AudioStream" id=9]
 [ext_resource path="res://data/menu/uitheme.tres" type="Theme" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -315,10 +315,8 @@ current = true
 zoom = Vector2( 1.7, 1.7 )
 
 [node name="grey_universe" type="AnimatedSprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -7, 342 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="IntroVillainPose2" type="Sprite" parent="."]
@@ -354,6 +352,8 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = -15.0
+bus = "Music"
 
 [node name="Label" type="Label" parent="."]
 margin_left = -83.0
