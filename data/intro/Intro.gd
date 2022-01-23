@@ -19,5 +19,4 @@ func _on_completion() -> void:
 	var camera : Camera2D = get_tree().get_nodes_in_group('camera')[0]
 	camera.current = true
 	emit_signal("complete")
-	print('completed')
 	queue_free()

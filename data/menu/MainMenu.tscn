@@ -430,6 +430,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MuteButton" type="Button" parent="."]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 73.0
+margin_bottom = 74.0
+text = "Mute"
+flat = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -15.0
@@ -447,3 +455,4 @@ bus = "Music"
 [connection signal="pressed" from="HelpPanel/BackButton" to="HelpPanel" method="_on_BackButton_pressed"]
 [connection signal="visibility_changed" from="CreditsPanel" to="CreditsPanel" method="_on_Panel_visibility_changed"]
 [connection signal="pressed" from="CreditsPanel/BackButton" to="CreditsPanel" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="MuteButton" to="." method="_on_MuteButton_pressed"]

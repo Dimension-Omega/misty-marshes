@@ -356,10 +356,10 @@ volume_db = -15.0
 bus = "Music"
 
 [node name="Label" type="Label" parent="."]
-margin_left = -83.0
-margin_top = -402.0
-margin_right = 96.0
-margin_bottom = -349.0
+margin_left = 653.0
+margin_top = -447.0
+margin_right = 838.0
+margin_bottom = -394.0
 text = "Press escape to skip"
 __meta__ = {
 "_edit_use_anchors_": false

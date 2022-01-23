@@ -10,6 +10,7 @@ onready var level_buttons = [
 	$LevelsPanel/GridContainer/Level2/MarginContainer/HBoxContainer/Level_2,
 	$LevelsPanel/GridContainer/Level3/MarginContainer/HBoxContainer/Level_3,
 ]
+const AUDIO_MASTER_BUS := 0
 
 var main 
 
@@ -51,3 +52,7 @@ func _on_Help_pressed():
 	$HelpPanel.visible = true
 	buttons.visible = false
 	last_panel = 'help'
+
+
+func _on_MuteButton_pressed():
+	AudioServer.set_bus_mute(AUDIO_MASTER_BUS, not AudioServer.is_bus_mute(AUDIO_MASTER_BUS))

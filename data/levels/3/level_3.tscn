@@ -66,7 +66,7 @@ position = Vector2( 0, -750 )
 shape = SubResource( 1 )
 
 [node name="RightPolygon" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 625, -223, 1033, -241, 1041, 197, 931, 127, 701, 135, 603, 81, 579, -55, 597, -153 )
+polygon = PoolVector2Array( 1030, -147, 1041, 197, 931, 127, 701, 135, 603, 81, 579, -55, 601, -149 )
 
 [node name="TopPolygon" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( 26, -610, 32, -203, -452, -197, -460, -279, -268, -285, -265, -607 )
@@ -85,11 +85,11 @@ shape = SubResource( 2 )
 [node name="entities" type="Node2D" parent="."]
 
 [node name="Gate" parent="entities" instance=ExtResource( 7 )]
-position = Vector2( 797, -503 )
+position = Vector2( 602, -143 )
 initial_pos = 1
 
 [node name="Gate2" parent="entities" instance=ExtResource( 7 )]
-position = Vector2( -485, -415 )
+position = Vector2( -464, -246 )
 initial_pos = 1
 
 [node name="Switch" parent="entities" instance=ExtResource( 5 )]
@@ -104,7 +104,7 @@ trigger_node = NodePath("../Gate2")
 only_on_black = true
 
 [node name="Target" parent="entities" instance=ExtResource( 6 )]
-position = Vector2( 933, -289 )
+position = Vector2( 922, -213 )
 
 [node name="Secret" parent="entities" instance=ExtResource( 14 )]
 position = Vector2( -368, -369 )

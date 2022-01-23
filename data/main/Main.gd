@@ -110,21 +110,14 @@ func set_world_with_modulate(color: String, duration: float) -> void:
 	var whiteNodes = get_tree().get_nodes_in_group('white')
 	var blackNodes = get_tree().get_nodes_in_group('black')
 	var toWhite : bool = color == 'white'
-	
 	var _tweenRemoveError = tween.remove_all()
-
 	for whiteNode in whiteNodes:
-		#print('white: ', whiteNode.name)
 		set_world_element(whiteNode, toWhite, duration)
 	for blackNode in blackNodes:
-		#print('black: ', blackNode.name)
 		set_world_element(blackNode, not toWhite, duration)
-	
-	# print('The world is changing to ', color)
 	get_tree().call_group('duality', 'the_world_is_changing', color)
 	world_color = color
 	var _tweenStartError = tween.start()
-	
 	timer.start(duration + EXTRA_COYOTE_TIME)
 	if not timer.is_connected("timeout", self, '_on_Timer_timeout'):
 		var _connErr = timer.connect("timeout", self, '_on_Timer_timeout')

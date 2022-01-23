@@ -22,7 +22,8 @@ _global_script_class_icons={
 
 config/name="MistyMarshes"
 run/main_scene="res://data/main/Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://icons/mm_ico_256.png"
+config/windows_native_icon="res://icons/mm_ico_256.ico"
 
 [display]
 
