@@ -25,6 +25,14 @@ func _ready() -> void:
 			var levelButton : Button = level_buttons[i]
 			if not levelButton.is_connected("pressed", main, 'load_level_and_set_world'):
 				var _conErr = levelButton.connect("pressed", main, 'load_level_and_set_world', [i+1])
+				
+	if ProjectSettings.get_setting('application/config/is_html'):
+		$Buttons/VBoxContainer/LevelsButton.focus_neighbour_top = "../Credits"
+		$Buttons/VBoxContainer/LevelsButton.focus_previous = "../Credits"
+		$Buttons/VBoxContainer/Credits.focus_neighbour_bottom = "../LevelsButton"
+		$Buttons/VBoxContainer/Credits.focus_next = "../LevelsButton"
+		$Buttons/VBoxContainer/Exit.queue_free()
+	
 
 func _on_Exit_pressed():
 	get_tree().quit(0)

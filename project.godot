@@ -24,6 +24,8 @@ config/name="MistyMarshes"
 run/main_scene="res://data/main/Main.tscn"
 config/icon="res://icons/mm_ico_256.png"
 config/windows_native_icon="res://icons/mm_ico_256.ico"
+config/is_html=false
+config/is_html.HTML5=true
 
 [display]
 
