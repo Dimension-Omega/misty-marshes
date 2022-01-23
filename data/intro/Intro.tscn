@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://data/intro/intro_villain_pose_1.png" type="Texture" id=1]
 [ext_resource path="res://data/intro/intro_bg.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://data/intro/black_universe.png" type="Texture" id=7]
 [ext_resource path="res://data/intro/Intro.gd" type="Script" id=8]
 [ext_resource path="res://data/intro/Misty_marshes_-_Intro_theme_2.mp3" type="AudioStream" id=9]
+[ext_resource path="res://data/menu/uitheme.tres" type="Theme" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -294,6 +295,7 @@ tracks/11/keys = {
 [node name="Intro" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 10 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -352,5 +354,15 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -83.0
+margin_top = -402.0
+margin_right = 96.0
+margin_bottom = -349.0
+text = "Press escape to skip"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
