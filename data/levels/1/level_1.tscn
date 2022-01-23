@@ -145,20 +145,22 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -184.5
-margin_top = -138.5
+margin_top = -166.5
 margin_right = 184.5
-margin_bottom = 138.5
+margin_bottom = 166.5
 text = "Controls: Use the arrow keys or [awsd]
 
 Move:                    Left/Right/A/D
 Interact/Jump:        Up/W
-Change Dimension:   Down/S"
+Change Dimension:   Down/S
+Open Options Panel:  Escape"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+volume_db = -10.0
 autoplay = true
 bus = "Music"
 

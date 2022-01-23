@@ -59,6 +59,7 @@ focus_neighbour_top = NodePath("../Exit")
 focus_neighbour_bottom = NodePath("../Mute")
 focus_next = NodePath("../Mute")
 focus_previous = NodePath("../Exit")
+shortcut_in_tooltip = false
 shortcut = ExtResource( 2 )
 text = "Continue"
 flat = true
