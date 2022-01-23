@@ -6,7 +6,7 @@ var current_level : String = ''
 
 var levels : Dictionary = {
 	'1': {
-		'scene': "res://data/levels/2/level_2.tscn",
+		'scene': "res://data/levels/1/level_1.tscn",
 		'completed': false,
 		'secret_found': false
 	},
@@ -153,11 +153,12 @@ func load_level(levelNumber: int) -> void:
 	current_level = str(levelNumber)
 
 func load_level_and_set_world(levelNumber: int) -> void:
+	$Camera2D.current = true
 	load_level(levelNumber)
 	set_world_with_modulate('black', 0)
 	#print('set_world')
 	close_menu()
-	$Camera2D.current = true
+
 
 func _on_Intro_complete():
 	open_menu()
