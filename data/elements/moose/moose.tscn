@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://data/elements/moose/moose_black.png" type="Texture" id=1]
 [ext_resource path="res://data/elements/moose/moose_white.png" type="Texture" id=2]
 [ext_resource path="res://data/elements/moose/moose.gd" type="Script" id=3]
 [ext_resource path="res://data/shaders/wobbly_shader.tres" type="Material" id=4]
+[ext_resource path="res://data/elements/moose/hit.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 100 )
@@ -64,3 +65,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MooseBlack/BlackCollider"]
 shape = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Effects"

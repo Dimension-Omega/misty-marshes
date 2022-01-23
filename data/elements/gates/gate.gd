@@ -17,6 +17,8 @@ func set_gate_position(gatePosition: int, instant: bool = false) -> void:
 	$AnimationPlayer.play("horizontal" if gatePosition == EPosition.HORIZONTAL else "vertical")
 	if instant:
 		$AnimationPlayer.seek(2, true)
+	else:
+		$AudioStreamPlayer.play()
 	gate_position = gatePosition
 	
 func set_initial_pos(value: int) -> void:
