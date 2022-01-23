@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://data/levels/2/level_2_fg_black.png" type="Texture" id=1]
 [ext_resource path="res://data/levels/2/level_2_bg_black.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://data/elements/target/target.tscn" type="PackedScene" id=13]
 [ext_resource path="res://data/elements/secret/secret.tscn" type="PackedScene" id=14]
 [ext_resource path="res://data/levels/Misty_marshes_-_Main_theme_2_final.mp3" type="AudioStream" id=15]
+[ext_resource path="res://data/elements/grass/grass.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1300, 60 )
@@ -120,6 +121,14 @@ position = Vector2( 942, -425 )
 
 [node name="Secret" parent="entities" instance=ExtResource( 14 )]
 position = Vector2( 610, 408 )
+
+[node name="Grass" parent="entities" instance=ExtResource( 16 )]
+position = Vector2( 409, 455 )
+scale = Vector2( 0.889764, 0.878049 )
+
+[node name="Grass2" parent="entities" instance=ExtResource( 16 )]
+position = Vector2( 774, 456 )
+scale = Vector2( 0.778191, 0.793517 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 position = Vector2( -699, 416 )
