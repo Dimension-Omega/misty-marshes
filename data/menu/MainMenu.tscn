@@ -55,8 +55,8 @@ __meta__ = {
 }
 
 [node name="LevelsButton" type="Button" parent="Buttons/VBoxContainer"]
-margin_right = 78.0
-margin_bottom = 59.0
+margin_right = 82.0
+margin_bottom = 47.0
 focus_neighbour_top = NodePath("../Exit")
 focus_neighbour_bottom = NodePath("../Help")
 focus_next = NodePath("../Help")
@@ -65,9 +65,9 @@ text = "Levels"
 flat = true
 
 [node name="Help" type="Button" parent="Buttons/VBoxContainer"]
-margin_top = 63.0
-margin_right = 78.0
-margin_bottom = 122.0
+margin_top = 51.0
+margin_right = 82.0
+margin_bottom = 98.0
 focus_neighbour_top = NodePath("../LevelsButton")
 focus_neighbour_bottom = NodePath("../Credits")
 focus_next = NodePath("../Credits")
@@ -76,9 +76,9 @@ text = "Help"
 flat = true
 
 [node name="Credits" type="Button" parent="Buttons/VBoxContainer"]
-margin_top = 126.0
-margin_right = 78.0
-margin_bottom = 185.0
+margin_top = 102.0
+margin_right = 82.0
+margin_bottom = 149.0
 focus_neighbour_top = NodePath("../Help")
 focus_neighbour_bottom = NodePath("../Exit")
 focus_next = NodePath("../Exit")
@@ -87,9 +87,9 @@ text = "Credits"
 flat = true
 
 [node name="Exit" type="Button" parent="Buttons/VBoxContainer"]
-margin_top = 189.0
-margin_right = 78.0
-margin_bottom = 248.0
+margin_top = 153.0
+margin_right = 82.0
+margin_bottom = 200.0
 focus_neighbour_top = NodePath("../Credits")
 focus_neighbour_bottom = NodePath("../LevelsButton")
 focus_next = NodePath("../LevelsButton")
@@ -139,7 +139,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level1/MarginContainer"]
 margin_right = 250.0
-margin_bottom = 217.0
+margin_bottom = 205.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -203,7 +203,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level2/MarginContainer"]
 margin_right = 250.0
-margin_bottom = 217.0
+margin_bottom = 205.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -269,7 +269,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level3/MarginContainer"]
 margin_right = 250.0
-margin_bottom = 217.0
+margin_bottom = 205.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -357,14 +357,16 @@ __meta__ = {
 [node name="Label" type="Label" parent="HelpPanel/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-text = "Use the arrow keys or [awsd]
+text = "Controls: Use the arrow keys or [awsd]
 
-Move: Left/Right/A/D
-Interact/Jump: Up/W
-Change Dimension: Down/S
-Open Menu: Escape"
-align = 1
+Move:                      Left/Right/A/D
+Interact/Jump:        Up/W
+Change Dimension:   Down/S
+Open Options Panel: Escape"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BackButton" type="Button" parent="HelpPanel"]
 anchor_left = 1.0

@@ -53,8 +53,8 @@ __meta__ = {
 }
 
 [node name="Continue" type="Button" parent="Panel/Buttons/VBoxContainer"]
-margin_right = 187.0
-margin_bottom = 59.0
+margin_right = 200.0
+margin_bottom = 47.0
 focus_neighbour_top = NodePath("../Exit")
 focus_neighbour_bottom = NodePath("../Mute")
 focus_next = NodePath("../Mute")
@@ -65,9 +65,9 @@ text = "Continue"
 flat = true
 
 [node name="Mute" type="Button" parent="Panel/Buttons/VBoxContainer"]
-margin_top = 63.0
-margin_right = 187.0
-margin_bottom = 122.0
+margin_top = 51.0
+margin_right = 200.0
+margin_bottom = 98.0
 focus_neighbour_top = NodePath("../Continue")
 focus_neighbour_bottom = NodePath("../Exit")
 focus_next = NodePath("../Exit")
@@ -76,9 +76,9 @@ text = "Mute"
 flat = true
 
 [node name="Exit" type="Button" parent="Panel/Buttons/VBoxContainer"]
-margin_top = 126.0
-margin_right = 187.0
-margin_bottom = 185.0
+margin_top = 102.0
+margin_right = 200.0
+margin_bottom = 149.0
 focus_neighbour_top = NodePath("../Mute")
 focus_neighbour_bottom = NodePath("../Continue")
 focus_next = NodePath("../Continue")

@@ -101,10 +101,12 @@ func _on_InteractSensor_area_exited(area: Area2D):
 func add_interactable(node: Node2D) -> void:
 	if node.is_in_group('interactable'):
 		available_interactables.append(node)
+		print('added ', node)
 
 func remove_interactable(node: Node2D) -> void:
 	if node in available_interactables:
 		available_interactables.erase(node)
+		print('removed ', node)
 
 func select_interactable(interactables: Array) -> Node2D:
 	if not interactables:

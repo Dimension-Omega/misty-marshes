@@ -28,6 +28,7 @@ config/windows_native_icon="res://icons/mm_ico_256.ico"
 [display]
 
 window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [gui]
 
