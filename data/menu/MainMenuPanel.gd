@@ -12,6 +12,7 @@ func _on_BackButton_pressed():
 
 func on_visible() -> void:
 	get_node(on_visible_focus).grab_focus()
+	if name != 'LevelsPanel': return
 	var mainNodes = get_tree().get_nodes_in_group('main')
 	if mainNodes:
 		var main = mainNodes[0]

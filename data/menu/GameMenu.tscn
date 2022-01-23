@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://data/menu/GameMenu.gd" type="Script" id=1]
+[ext_resource path="res://data/menu/ui_cancel.tres" type="ShortCut" id=2]
+[ext_resource path="res://data/menu/uitheme.tres" type="Theme" id=3]
+
+[node name="GameMenu" type="Control" groups=["game menu"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -125.0
+margin_top = -100.0
+margin_right = 125.0
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Buttons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -93.5
+margin_top = -92.5
+margin_right = 93.5
+margin_bottom = 92.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="Panel/Buttons/VBoxContainer"]
+margin_right = 187.0
+margin_bottom = 59.0
+focus_neighbour_top = NodePath("../Exit")
+focus_neighbour_bottom = NodePath("../Mute")
+focus_next = NodePath("../Mute")
+focus_previous = NodePath("../Exit")
+shortcut = ExtResource( 2 )
+text = "Continue"
+flat = true
+
+[node name="Mute" type="Button" parent="Panel/Buttons/VBoxContainer"]
+margin_top = 63.0
+margin_right = 187.0
+margin_bottom = 122.0
+focus_neighbour_top = NodePath("../Continue")
+focus_neighbour_bottom = NodePath("../Exit")
+focus_next = NodePath("../Exit")
+focus_previous = NodePath("../Continue")
+text = "Mute"
+flat = true
+
+[node name="Exit" type="Button" parent="Panel/Buttons/VBoxContainer"]
+margin_top = 126.0
+margin_right = 187.0
+margin_bottom = 185.0
+focus_neighbour_top = NodePath("../Mute")
+focus_neighbour_bottom = NodePath("../Continue")
+focus_next = NodePath("../Continue")
+focus_previous = NodePath("../Mute")
+text = "Exit to Main Menu"
+flat = true
+
+[connection signal="pressed" from="Panel/Buttons/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="Panel/Buttons/VBoxContainer/Mute" to="." method="_on_Mute_pressed"]
+[connection signal="pressed" from="Panel/Buttons/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

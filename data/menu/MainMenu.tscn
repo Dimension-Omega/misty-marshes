@@ -33,6 +33,9 @@ margin_left = -20.0
 margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Buttons"]
 anchor_left = 0.5
@@ -353,7 +356,8 @@ text = "Use the arrow keys or [awsd]
 
 Move: Left/Right/A/D
 Interact/Jump: Up/W
-Change Dimension: Down/S"
+Change Dimension: Down/S
+Open Menu: Escape"
 align = 1
 valign = 1
 

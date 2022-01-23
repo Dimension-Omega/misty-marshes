@@ -23,6 +23,7 @@ var levels : Dictionary = {
 }
 
 export var menu_scene : PackedScene
+export var game_menu_scene : PackedScene
 
 onready var tween : Tween = $Tween
 onready var timer : Timer = $Timer
@@ -57,9 +58,20 @@ func complete_level():
 	var mainMenu = mainMenus[0]
 	mainMenu._on_LevelsButton_pressed()
 
+func back_to_main_menu():
+	open_menu()
+	free_level()
+
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("duality"):
 		set_world('white' if world_color == 'black' else 'black')
+	elif event.is_action_pressed("game_menu") and current_level:
+		var gameMenus = get_tree().get_nodes_in_group('game menu')
+		if gameMenus:
+			return
+		var gameMenu = game_menu_scene.instance()
+		$UILayer.add_child(gameMenu)
+		
 
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if event.echo or not event.pressed: return
