@@ -154,7 +154,7 @@ func load_level(levelNumber: int) -> void:
 
 func load_level_and_set_world(levelNumber: int) -> void:
 	load_level(levelNumber)
-	set_world_with_modulate(world_color, 0)
+	set_world_with_modulate('black', 0)
 	#print('set_world')
 	close_menu()
 	$Camera2D.current = true

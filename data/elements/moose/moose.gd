@@ -12,6 +12,7 @@ var world_color : String
 var is_triggered : bool = false
 
 const SPEED := 400
+const BASE_SCALE := 0.7
 const UP_VECTOR := Vector2.UP
 const SNAP_VECTOR := Vector2.DOWN * 100
 const REACHED_TARGET_DISTANCE := 10.0
@@ -49,7 +50,7 @@ func interact() -> void:
 		direction = -sign(dist.x)
 	velocity = Vector2(direction, 0) * SPEED
 	$MooseBlack.scale.x = direction
-	$MooseWhite.scale.x = direction
+	$MooseWhite.scale.x = direction * BASE_SCALE
 	set_physics_process(true)
 	
 
