@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/1Misty_marshes_-_Menu_2.mp3-44c57173f82e2d57c6a73aa877b81710.mp3str"
+
+[deps]
+
+source_file="res://data/menu/1Misty_marshes_-_Menu_2.mp3"
+dest_files=[ "res://.import/1Misty_marshes_-_Menu_2.mp3-44c57173f82e2d57c6a73aa877b81710.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
