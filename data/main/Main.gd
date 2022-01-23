@@ -73,20 +73,20 @@ func _unhandled_input(event) -> void:
 		$UILayer.add_child(gameMenu)
 		
 
-func _unhandled_key_input(event: InputEventKey) -> void:
-	if event.echo or not event.pressed: return
-	if event.scancode == KEY_1:
-		set_world('black')
-	elif event.scancode == KEY_2:
-		set_world('white')
-	elif event.scancode == KEY_5:
-		Engine.time_scale = 3.0
-	elif event.scancode == KEY_6:
-		Engine.time_scale = 1
-	elif event.scancode == KEY_I:
-		get_tree().call_group('interactable', 'interact')
-	elif event.scancode == KEY_0:
-		set_world('white' if world_color == 'black' else 'black')
+#func _unhandled_key_input(event: InputEventKey) -> void:
+#	if event.echo or not event.pressed: return
+#	if event.scancode == KEY_1:
+#		set_world('black')
+#	elif event.scancode == KEY_2:
+#		set_world('white')
+#	elif event.scancode == KEY_5:
+#		Engine.time_scale = 3.0
+#	elif event.scancode == KEY_6:
+#		Engine.time_scale = 1
+#	elif event.scancode == KEY_I:
+#		get_tree().call_group('interactable', 'interact')
+#	elif event.scancode == KEY_0:
+#		set_world('white' if world_color == 'black' else 'black')
 
 func set_world(color: String) -> void:
 	assert(color in ['white', 'black'])
