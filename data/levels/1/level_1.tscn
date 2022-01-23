@@ -115,7 +115,7 @@ position = Vector2( 912, -365 )
 position = Vector2( -485, 297 )
 
 [node name="Camera2D" type="Camera2D" parent="Cinematic"]
-position = Vector2( -582, 244 )
+position = Vector2( -572, 244 )
 zoom = Vector2( 0.9, 0.9 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

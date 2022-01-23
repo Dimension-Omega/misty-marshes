@@ -40,7 +40,7 @@ func _ready():
 #	load_level(2)
 #	yield(get_tree().create_timer(0.05), 'timeout')
 #	set_world_with_modulate(world_color, 0)
-	pass
+	VisualServer.set_default_clear_color(Color(0, 0, 0))
 
 func on_target_hit() -> void:
 	complete_level()
