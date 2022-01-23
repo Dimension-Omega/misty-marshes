@@ -10,7 +10,7 @@ extents = Vector2( 10, 60 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20, 70 )
 
-[node name="Player" type="KinematicBody2D" groups=["duality"]]
+[node name="Player" type="KinematicBody2D" groups=["duality", "player"]]
 collision_layer = 512
 script = ExtResource( 3 )
 

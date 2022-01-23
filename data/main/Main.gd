@@ -16,7 +16,7 @@ var levels : Dictionary = {
 		'secret_found': false
 	},
 	'3': {
-		'scene': "res://data/levels/2/level_2.tscn",
+		'scene': "res://data/levels/3/level_3.tscn",
 		'completed': false,
 		'secret_found': false
 	}

@@ -76,6 +76,7 @@ duality={
 2d_physics/layer_1="common"
 2d_physics/layer_2="black"
 2d_physics/layer_3="white"
+2d_physics/layer_5="boulder"
 2d_physics/layer_10="player"
 2d_physics/layer_11="interact sensor"
 2d_physics/layer_12="interactable"
