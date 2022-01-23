@@ -60,4 +60,6 @@ one_shot = true
 
 [node name="Intro" parent="." instance=ExtResource( 2 )]
 
+[node name="UILayer" type="CanvasLayer" parent="."]
+
 [connection signal="complete" from="Intro" to="." method="_on_Intro_complete"]

@@ -130,7 +130,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level1/MarginContainer"]
 margin_right = 250.0
-margin_bottom = 213.0
+margin_bottom = 217.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -156,6 +156,25 @@ focus_next = NodePath("../../../../Level2/MarginContainer/HBoxContainer/Level_2"
 text = "1"
 flat = true
 
+[node name="Achievements" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level1/MarginContainer/HBoxContainer"]
+margin_top = 217.0
+margin_right = 250.0
+margin_bottom = 217.0
+
+[node name="Completed" type="Label" parent="LevelsPanel/GridContainer/Level1/MarginContainer/HBoxContainer/Achievements"]
+visible = false
+margin_right = 250.0
+margin_bottom = 53.0
+text = "Completed!"
+align = 1
+
+[node name="SecretFound" type="Label" parent="LevelsPanel/GridContainer/Level1/MarginContainer/HBoxContainer/Achievements"]
+visible = false
+margin_right = 250.0
+margin_bottom = 53.0
+text = "Secret Found!"
+align = 1
+
 [node name="Level2" type="Control" parent="LevelsPanel/GridContainer"]
 margin_left = 304.0
 margin_right = 604.0
@@ -175,7 +194,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level2/MarginContainer"]
 margin_right = 250.0
-margin_bottom = 213.0
+margin_bottom = 217.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -203,6 +222,25 @@ focus_previous = NodePath("../../../../Level1/MarginContainer/HBoxContainer/Leve
 text = "2"
 flat = true
 
+[node name="Achievements" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level2/MarginContainer/HBoxContainer"]
+margin_top = 217.0
+margin_right = 250.0
+margin_bottom = 217.0
+
+[node name="Completed" type="Label" parent="LevelsPanel/GridContainer/Level2/MarginContainer/HBoxContainer/Achievements"]
+visible = false
+margin_right = 250.0
+margin_bottom = 53.0
+text = "Completed!"
+align = 1
+
+[node name="SecretFound" type="Label" parent="LevelsPanel/GridContainer/Level2/MarginContainer/HBoxContainer/Achievements"]
+visible = false
+margin_right = 250.0
+margin_bottom = 53.0
+text = "Secret Found!"
+align = 1
+
 [node name="Level3" type="Control" parent="LevelsPanel/GridContainer"]
 margin_left = 608.0
 margin_right = 908.0
@@ -222,7 +260,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level3/MarginContainer"]
 margin_right = 250.0
-margin_bottom = 213.0
+margin_bottom = 217.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -246,6 +284,25 @@ focus_neighbour_left = NodePath("../../../../Level2/MarginContainer/HBoxContaine
 focus_neighbour_bottom = NodePath("../../../../../BackButton")
 text = "3"
 flat = true
+
+[node name="Achievements" type="VBoxContainer" parent="LevelsPanel/GridContainer/Level3/MarginContainer/HBoxContainer"]
+margin_top = 217.0
+margin_right = 250.0
+margin_bottom = 217.0
+
+[node name="Completed" type="Label" parent="LevelsPanel/GridContainer/Level3/MarginContainer/HBoxContainer/Achievements"]
+visible = false
+margin_right = 250.0
+margin_bottom = 53.0
+text = "Completed!"
+align = 1
+
+[node name="SecretFound" type="Label" parent="LevelsPanel/GridContainer/Level3/MarginContainer/HBoxContainer/Achievements"]
+visible = false
+margin_right = 250.0
+margin_bottom = 53.0
+text = "Secret Found!"
+align = 1
 
 [node name="BackButton" type="Button" parent="LevelsPanel"]
 anchor_left = 1.0

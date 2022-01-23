@@ -2,10 +2,23 @@ extends Node
 
 
 var world_color : String = 'black'
+var current_level : String = ''
 
 var levels : Dictionary = {
+	'1': {
+		'scene': "res://data/levels/2/level_2.tscn",
+		'completed': false,
+		'secret_found': false
+	},
 	'2': {
-		'scene': "res://data/levels/2/level_2.tscn"
+		'scene': "res://data/levels/2/level_2.tscn",
+		'completed': false,
+		'secret_found': false
+	},
+	'3': {
+		'scene': "res://data/levels/2/level_2.tscn",
+		'completed': false,
+		'secret_found': false
 	}
 }
 
@@ -27,6 +40,22 @@ func _ready():
 #	yield(get_tree().create_timer(0.05), 'timeout')
 #	set_world_with_modulate(world_color, 0)
 	pass
+
+func on_target_hit() -> void:
+	complete_level()
+
+func on_secret_found() -> void:
+	levels[current_level].secret_found = true
+
+func complete_level():
+	#print(current_level, secretFound)
+	levels[current_level].completed = true
+	open_menu()
+	free_level()
+	var mainMenus = get_tree().get_nodes_in_group('main menu')
+	assert(mainMenus.size() > 0)
+	var mainMenu = mainMenus[0]
+	mainMenu._on_LevelsButton_pressed()
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("duality"):
@@ -113,6 +142,7 @@ func set_level(levelNumber: int) -> void:
 func free_level() -> void:
 	for child in $Scene.get_children():
 		child.queue_free()
+	current_level = ''
 
 func load_level(levelNumber: int) -> void:
 	var levelString = str(levelNumber)
@@ -120,11 +150,12 @@ func load_level(levelNumber: int) -> void:
 	var levelRes = load(levels[levelString].scene)
 	var newLevel = levelRes.instance()
 	$Scene.add_child(newLevel)
+	current_level = str(levelNumber)
 
 func load_level_and_set_world(levelNumber: int) -> void:
 	load_level(levelNumber)
 	set_world_with_modulate(world_color, 0)
-	print('set_world')
+	#print('set_world')
 	close_menu()
 	$Camera2D.current = true
 
@@ -133,12 +164,12 @@ func _on_Intro_complete():
 	
 func open_menu() -> void:
 	if has_node('MainMenu'):
-		var menu = get_node_or_null('MainMenu')
+		var menu = get_node_or_null('UILayer/MainMenu')
 		if is_instance_valid(menu):
 			menu.name = 'oldMenu'
 			get_node('MainMenu').queue_free()
 	var newMenu = menu_scene.instance()
-	add_child(newMenu, true)
+	$UILayer.add_child(newMenu, true)
 
 func close_menu() -> void:
 	var menuNodes = get_tree().get_nodes_in_group('main menu')

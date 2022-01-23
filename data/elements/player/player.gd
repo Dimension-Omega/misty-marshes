@@ -19,6 +19,9 @@ var available_interactables : Array = []
 
 onready var sprite : Sprite = $PlayerBlack
 
+func _ready() -> void:
+	set_meta('player', true)
+
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("jump"):
 		if can_interact(interactable):

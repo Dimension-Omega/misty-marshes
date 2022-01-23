@@ -3,7 +3,7 @@ extends Control
 signal complete
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("ui_accept") or event.is_action_pressed("jump"):
 		skip()
 
 func skip() -> void:

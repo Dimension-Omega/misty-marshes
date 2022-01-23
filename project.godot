@@ -80,6 +80,8 @@ duality={
 2d_physics/layer_11="interact sensor"
 2d_physics/layer_12="interactable"
 2d_physics/layer_15="kinematic entities"
+2d_physics/layer_20="target"
+2d_physics/layer_21="secret"
 
 [physics]
 

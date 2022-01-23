@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://data/levels/2/level_2_fg_black.png" type="Texture" id=1]
 [ext_resource path="res://data/levels/2/level_2_bg_black.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://data/elements/platforms/PlatformWhite.tscn" type="PackedScene" id=10]
 [ext_resource path="res://data/elements/gates/gate.tscn" type="PackedScene" id=11]
 [ext_resource path="res://data/elements/switches/switch.tscn" type="PackedScene" id=12]
+[ext_resource path="res://data/elements/target/target.tscn" type="PackedScene" id=13]
+[ext_resource path="res://data/elements/secret/secret.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1300, 60 )
@@ -19,7 +21,7 @@ extents = Vector2( 1300, 60 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50, 1000 )
 
-[node name="level_2" type="Node2D" groups=["duality"]]
+[node name="level_2" type="Node2D" groups=["duality", "level"]]
 script = ExtResource( 5 )
 
 [node name="black" type="Node2D" parent="." groups=["black"]]
@@ -111,6 +113,12 @@ initial_pos = 1
 position = Vector2( -981, -174 )
 trigger_node = NodePath("../Gate2")
 only_on_black = true
+
+[node name="Target" parent="entities" instance=ExtResource( 13 )]
+position = Vector2( 365, 412 )
+
+[node name="Secret" parent="entities" instance=ExtResource( 14 )]
+position = Vector2( 8, 148 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 position = Vector2( -699, 416 )
