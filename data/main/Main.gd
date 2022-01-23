@@ -9,6 +9,8 @@ var levels : Dictionary = {
 	}
 }
 
+export var menu_scene : PackedScene
+
 onready var tween : Tween = $Tween
 onready var timer : Timer = $Timer
 
@@ -20,10 +22,11 @@ const TRANSPARENT := Color(1, 1, 1, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$ColorRect.visible = true
-	load_level(2)
-	yield(get_tree().create_timer(0.05), 'timeout')
-	set_world_with_modulate(world_color, 0)
+#	$ColorRect.visible = true
+#	load_level(2)
+#	yield(get_tree().create_timer(0.05), 'timeout')
+#	set_world_with_modulate(world_color, 0)
+	pass
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("duality"):
@@ -35,6 +38,10 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 		set_world('black')
 	elif event.scancode == KEY_2:
 		set_world('white')
+	elif event.scancode == KEY_5:
+		Engine.time_scale = 3.0
+	elif event.scancode == KEY_6:
+		Engine.time_scale = 1
 	elif event.scancode == KEY_I:
 		get_tree().call_group('interactable', 'interact')
 	elif event.scancode == KEY_0:
@@ -113,3 +120,27 @@ func load_level(levelNumber: int) -> void:
 	var levelRes = load(levels[levelString].scene)
 	var newLevel = levelRes.instance()
 	$Scene.add_child(newLevel)
+
+func load_level_and_set_world(levelNumber: int) -> void:
+	load_level(levelNumber)
+	set_world_with_modulate(world_color, 0)
+	print('set_world')
+	close_menu()
+	$Camera2D.current = true
+
+func _on_Intro_complete():
+	open_menu()
+	
+func open_menu() -> void:
+	if has_node('MainMenu'):
+		var menu = get_node_or_null('MainMenu')
+		if is_instance_valid(menu):
+			menu.name = 'oldMenu'
+			get_node('MainMenu').queue_free()
+	var newMenu = menu_scene.instance()
+	add_child(newMenu, true)
+
+func close_menu() -> void:
+	var menuNodes = get_tree().get_nodes_in_group('main menu')
+	for menuNode in menuNodes:
+		menuNode.queue_free()
