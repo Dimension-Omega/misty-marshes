@@ -56,3 +56,12 @@ func _on_Help_pressed():
 
 func _on_MuteButton_pressed():
 	AudioServer.set_bus_mute(AUDIO_MASTER_BUS, not AudioServer.is_bus_mute(AUDIO_MASTER_BUS))
+
+
+func _on_LicensesPopupCloseButton_pressed():
+	$CreditsPanel/LicensesPopup.visible = false
+
+
+func _on_ViewLicensesButton_pressed():
+	$CreditsPanel/LicensesPopup.popup()
+	#$CreditsPanel/LicensesPopup/Panel/RichTextLabel.get_child(0).grab_focus()
