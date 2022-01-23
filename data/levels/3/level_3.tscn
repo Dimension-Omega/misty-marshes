@@ -103,7 +103,7 @@ trigger_node = NodePath("../Gate2")
 only_on_black = true
 
 [node name="Target" parent="entities" instance=ExtResource( 6 )]
-position = Vector2( 925, -340 )
+position = Vector2( 933, -289 )
 
 [node name="Secret" parent="entities" instance=ExtResource( 14 )]
 position = Vector2( -382, -559 )

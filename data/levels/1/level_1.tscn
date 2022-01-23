@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://data/levels/1/level_1_fg_white.png" type="Texture" id=1]
 [ext_resource path="res://data/levels/1/level_1_fg_black.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://data/elements/gates/gate.tscn" type="PackedScene" id=11]
 [ext_resource path="res://data/elements/switches/switch.tscn" type="PackedScene" id=12]
 [ext_resource path="res://data/menu/uitheme.tres" type="Theme" id=13]
+[ext_resource path="res://data/elements/secret/secret.tscn" type="PackedScene" id=14]
+[ext_resource path="res://data/elements/target/target.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1300, 60 )
@@ -100,6 +102,12 @@ only_on_white = true
 [node name="Player" parent="entities" instance=ExtResource( 8 )]
 position = Vector2( -775, 348 )
 
+[node name="Secret" parent="entities" instance=ExtResource( 14 )]
+position = Vector2( 675, 349 )
+
+[node name="Target" parent="entities" instance=ExtResource( 15 )]
+position = Vector2( 912, -365 )
+
 [node name="Cinematic" type="Node2D" parent="."]
 
 [node name="Villain" parent="Cinematic" instance=ExtResource( 6 )]
@@ -126,6 +134,9 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="CanvasLayer/Help"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="CanvasLayer/Help/Panel"]
 anchor_left = 0.5
