@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://data/levels/1/level_1_fg_white.png" type="Texture" id=1]
 [ext_resource path="res://data/levels/1/level_1_fg_black.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://data/elements/platforms/PlatformWhite.tscn" type="PackedScene" id=10]
 [ext_resource path="res://data/elements/gates/gate.tscn" type="PackedScene" id=11]
 [ext_resource path="res://data/elements/switches/switch.tscn" type="PackedScene" id=12]
+[ext_resource path="res://data/menu/uitheme.tres" type="Theme" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1300, 60 )
@@ -107,6 +108,42 @@ position = Vector2( -485, 297 )
 [node name="Camera2D" type="Camera2D" parent="Cinematic"]
 position = Vector2( -582, 244 )
 zoom = Vector2( 0.9, 0.9 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enable = true
+
+[node name="Help" type="Control" parent="CanvasLayer"]
+margin_left = -950.0
+margin_top = -481.0
+margin_right = -276.0
+margin_bottom = -39.0
+theme = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Help"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Help/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -184.5
+margin_top = -138.5
+margin_right = 184.5
+margin_bottom = 138.5
+text = "Controls: Use the arrow keys or [awsd]
+
+Move:                    Left/Right/A/D
+Interact/Jump:        Up/W
+Change Dimension:   Down/S"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="animation_finished" from="Cinematic/Villain/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
