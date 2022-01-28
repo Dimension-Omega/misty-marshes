@@ -30,6 +30,7 @@ func interact() -> void:
 	if is_instance_valid(triggerNode) and triggerNode.is_inside_tree():
 		assert(triggerNode.has_method('trigger'))
 		triggerNode.trigger()
+		$AudioStreamPlayer.play()
 
 func set_to(on: bool) -> void:
 	$SwitchOff.visible = not on

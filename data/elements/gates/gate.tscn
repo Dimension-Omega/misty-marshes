@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://data/elements/gates/gate.png" type="Texture" id=1]
 [ext_resource path="res://data/elements/gates/gate.gd" type="Script" id=2]
 [ext_resource path="res://data/shaders/wobbly_shader.tres" type="Material" id=3]
+[ext_resource path="res://data/elements/gates/door.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 215, 30 )
@@ -70,3 +71,7 @@ offset = Vector2( 5, 0 )
 anims/RESET = SubResource( 2 )
 anims/horizontal = SubResource( 4 )
 anims/vertical = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Effects"

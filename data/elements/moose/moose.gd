@@ -27,6 +27,7 @@ func _physics_process(_delta: float) -> void:
 		var collision = get_slide_collision(i)
 		if collision.collider.name == 'boulder':
 			collision.collider.break()
+			$AudioStreamPlayer.play()
 			set_physics_process(false)
 
 func the_world_is_changing(color: String) -> void:

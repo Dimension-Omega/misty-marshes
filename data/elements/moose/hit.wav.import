@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hit.wav-133c07bc04760844f99c779af1b6c02e.sample"
+
+[deps]
+
+source_file="res://data/elements/moose/hit.wav"
+dest_files=[ "res://.import/hit.wav-133c07bc04760844f99c779af1b6c02e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

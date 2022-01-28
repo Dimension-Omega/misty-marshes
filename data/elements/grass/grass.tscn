@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://data/elements/grass/grass_white.png" type="Texture" id=1]
+[ext_resource path="res://data/elements/grass/grass_black.png" type="Texture" id=2]
+[ext_resource path="res://data/shaders/wobbly_shader.tres" type="Material" id=3]
+
+[node name="Grass" type="Node2D"]
+material = ExtResource( 3 )
+
+[node name="GrassBlack" type="Sprite" parent="." groups=["black"]]
+use_parent_material = true
+texture = ExtResource( 2 )
+
+[node name="GrassWhite" type="Sprite" parent="." groups=["white"]]
+use_parent_material = true
+texture = ExtResource( 1 )

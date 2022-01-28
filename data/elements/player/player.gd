@@ -50,6 +50,11 @@ func _physics_process(delta: float) -> void:
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
 	time_since_last_jump = 0
+	play_jump_effect()
+
+func play_jump_effect() -> void:
+	var randomlySelected = randi() % 2
+	$AudioEffects.get_child(randomlySelected).play()
 
 func apply_gravity(velocityY: float, delta: float) -> float:
 	if velocityY >= MAX_DOWN_VELOCITY:
@@ -101,12 +106,12 @@ func _on_InteractSensor_area_exited(area: Area2D):
 func add_interactable(node: Node2D) -> void:
 	if node.is_in_group('interactable'):
 		available_interactables.append(node)
-		print('added ', node)
+		#print('added ', node)
 
 func remove_interactable(node: Node2D) -> void:
 	if node in available_interactables:
 		available_interactables.erase(node)
-		print('removed ', node)
+		#print('removed ', node)
 
 func select_interactable(interactables: Array) -> Node2D:
 	if not interactables:
