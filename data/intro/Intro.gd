@@ -6,10 +6,11 @@ func _ready() -> void:
 	$StartGameButton.grab_focus()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel") or event.is_action_pressed("jump") and $AnimationPlayer.is_playing():
+	if not is_queued_for_deletion() and (event.is_action_pressed("ui_cancel") or event.is_action_pressed("jump")) and $AnimationPlayer.is_playing():
 		skip()
 
 func skip() -> void:
+	# print('Skipped')
 	$AnimationPlayer.seek(100, true)
 	$AudioStreamPlayer.stop()
 	_on_completion()
@@ -24,7 +25,7 @@ func _on_completion() -> void:
 	emit_signal("complete")
 	queue_free()
 
-
 func _on_StartGameButton_pressed():
 	$AnimationPlayer.play("intro")
 	$StartGameButton.visible = false
+	# print("Started")
