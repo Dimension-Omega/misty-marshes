@@ -36,10 +36,6 @@ const TRANSPARENT := Color(1, 1, 1, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#	$ColorRect.visible = true
-#	load_level(2)
-#	yield(get_tree().create_timer(0.05), 'timeout')
-#	set_world_with_modulate(world_color, 0)
 	VisualServer.set_default_clear_color(Color(0, 0, 0))
 
 func on_target_hit() -> void:
@@ -71,7 +67,6 @@ func _unhandled_input(event) -> void:
 			return
 		var gameMenu = game_menu_scene.instance()
 		$UILayer.add_child(gameMenu)
-		
 
 #func _unhandled_key_input(event: InputEventKey) -> void:
 #	if event.echo or not event.pressed: return
@@ -138,11 +133,6 @@ func set_world_element(element: Node, toWhite: bool, duration: float) -> void:
 func _on_Timer_timeout() -> void:
 	# print('Called duality() with ', world_color)
 	get_tree().call_group('duality', 'duality', world_color)
-
-func set_level(levelNumber: int) -> void:
-	free_level()
-	yield(get_tree().create_timer(0.1), "timeout")
-	load_level(levelNumber)
 
 func free_level() -> void:
 	for child in $Scene.get_children():
