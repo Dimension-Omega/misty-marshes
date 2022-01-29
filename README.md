@@ -2,9 +2,7 @@
 
 by Dimension Omega
 
-[![Build](https://github.com/Dimension-Omega/misty-marshes/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/Dimension-Omega/misty-marshes/actions/workflows/gh-pages.yml)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/af34e9c6-732c-432d-8675-ef6cbf372fbb/deploy-status)](https://app.netlify.com/sites/misty-marshes/deploys)
+[![Build](https://github.com/Dimension-Omega/misty-marshes/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/Dimension-Omega/misty-marshes/actions/workflows/gh-pages.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/af34e9c6-732c-432d-8675-ef6cbf372fbb/deploy-status)](https://app.netlify.com/sites/misty-marshes/deploys)
 
 This was our project for the [2022 Global Game Jam \[Athens\]](https://globalgamejam.org/2022/jam-sites/global-game-jam-athens)
 
