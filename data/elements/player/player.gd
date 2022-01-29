@@ -13,6 +13,7 @@ var velocity := Vector2.ZERO
 var input_velocity := Vector2.ZERO
 var airtime : float = 0
 var time_since_last_jump : float = 0
+var time_since_last_jump_attempt : float = 0
 var up_direction := Vector2.UP
 var interactable : Node2D
 var available_interactables : Array = []
@@ -25,9 +26,11 @@ func _ready() -> void:
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("jump"):
 		if can_interact(interactable):
-				interactable.interact()
+			interactable.interact()
 		elif can_jump():
 			jump()
+		else:
+			time_since_last_jump_attempt = 0
 
 func can_jump() -> bool:
 	return is_on_floor() or (airtime < COYOTE_TIME and time_since_last_jump > COYOTE_TIME)
@@ -40,12 +43,17 @@ func _physics_process(delta: float) -> void:
 	var remainingVelocity = move_and_slide(velocity, up_direction)
 	velocity = remainingVelocity
 	time_since_last_jump += delta
+	time_since_last_jump_attempt += delta
 	if is_on_floor():
+		if should_still_jump():
+			jump()
 		airtime = 0
 	else:
 		airtime += delta
-	
 	interactable = select_interactable(available_interactables)
+
+func should_still_jump() -> bool:
+	return airtime > 0.2 and time_since_last_jump_attempt < 0.15 and time_since_last_jump > 0.2
 
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
