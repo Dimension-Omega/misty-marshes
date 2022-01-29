@@ -3,7 +3,7 @@
 # Make sure your project is configured for Web export
 # to the path `build/web`.
 
-name: 'Publish to GitHub Pages'
+name: 'Build for web'
 
 env:
   GODOT_VERSION: 3.4.2 # Remember to manually set image to this version below.
