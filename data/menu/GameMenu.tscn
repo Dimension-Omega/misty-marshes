@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://data/menu/GameMenu.gd" type="Script" id=1]
 [ext_resource path="res://data/menu/ui_cancel.tres" type="ShortCut" id=2]
 [ext_resource path="res://data/menu/uitheme.tres" type="Theme" id=3]
+[ext_resource path="res://data/menu/button.gd" type="Script" id=4]
 
 [node name="GameMenu" type="Control" groups=["game menu"]]
 anchor_right = 1.0
@@ -63,6 +64,7 @@ shortcut_in_tooltip = false
 shortcut = ExtResource( 2 )
 text = "Continue"
 flat = true
+script = ExtResource( 4 )
 
 [node name="Mute" type="Button" parent="Panel/Buttons/VBoxContainer"]
 margin_top = 51.0
@@ -74,6 +76,7 @@ focus_next = NodePath("../Exit")
 focus_previous = NodePath("../Continue")
 text = "Mute"
 flat = true
+script = ExtResource( 4 )
 
 [node name="Exit" type="Button" parent="Panel/Buttons/VBoxContainer"]
 margin_top = 102.0
@@ -85,6 +88,7 @@ focus_next = NodePath("../Continue")
 focus_previous = NodePath("../Mute")
 text = "Exit to Main Menu"
 flat = true
+script = ExtResource( 4 )
 
 [connection signal="pressed" from="Panel/Buttons/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="Panel/Buttons/VBoxContainer/Mute" to="." method="_on_Mute_pressed"]

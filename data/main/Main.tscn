@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://data/main/Main.gd" type="Script" id=1]
 [ext_resource path="res://data/intro/Intro.tscn" type="PackedScene" id=2]
 [ext_resource path="res://data/menu/MainMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://data/menu/GameMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://data/elements/target/win.wav" type="AudioStream" id=5]
+[ext_resource path="res://data/menu/menu.wav" type="AudioStream" id=6]
+[ext_resource path="res://data/menu/menuclick.wav" type="AudioStream" id=7]
+[ext_resource path="res://data/sounds/change2.wav" type="AudioStream" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -39,6 +43,30 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 menu_scene = ExtResource( 3 )
 game_menu_scene = ExtResource( 4 )
+
+[node name="MenuNavigation" type="Node" parent="."]
+
+[node name="Menu" type="AudioStreamPlayer" parent="MenuNavigation"]
+stream = ExtResource( 6 )
+bus = "Effects"
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="MenuNavigation"]
+stream = ExtResource( 7 )
+bus = "Effects"
+
+[node name="AcceptTimer" type="Timer" parent="MenuNavigation"]
+wait_time = 0.1
+one_shot = true
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Win" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 5 )
+bus = "Effects"
+
+[node name="Change2" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 8 )
+bus = "Effects"
 
 [node name="Scene" type="Node2D" parent="."]
 

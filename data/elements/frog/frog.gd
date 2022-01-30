@@ -16,6 +16,7 @@ func interact() -> void:
 		$AnimationPlayer.play("InteractBlack")
 	else:
 		is_triggered = not is_triggered
+		$SwitchTrigger.play()
 		set_white_sprite(is_triggered)
 		var triggerNode = get_node(trigger_node)
 		if is_instance_valid(triggerNode) and triggerNode.is_inside_tree():
