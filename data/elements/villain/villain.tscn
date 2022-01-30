@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://data/elements/villain/villain_laugh_1.png" type="Texture" id=1]
 [ext_resource path="res://data/elements/villain/villain_laugh_2.png" type="Texture" id=2]
 [ext_resource path="res://data/menu/uitheme.tres" type="Theme" id=3]
 [ext_resource path="res://data/shaders/wobbly_shader.tres" type="Material" id=4]
+[ext_resource path="res://data/elements/villain/disappear.wav" type="AudioStream" id=5]
+[ext_resource path="res://data/elements/villain/laugh.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -103,6 +105,34 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/3/type = "audio"
+tracks/3/path = NodePath("Sounds/Laugh")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 1 )
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("Sounds/Disappear")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 4.7 )
+}
 
 [node name="Villain" type="Node2D"]
 material = ExtResource( 4 )
@@ -136,3 +166,13 @@ percent_visible = 0.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="Laugh" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 6 )
+bus = "Effects"
+
+[node name="Disappear" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 5 )
+bus = "Effects"

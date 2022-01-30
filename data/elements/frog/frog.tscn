@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://data/elements/frog/frog_white.png" type="Texture" id=1]
 [ext_resource path="res://data/elements/frog/frog_black.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://data/elements/frog/frog_black_leap.png" type="Texture" id=5]
 [ext_resource path="res://data/shaders/wobbly_shader.tres" type="Material" id=6]
 [ext_resource path="res://data/elements/frog/frog.wav" type="AudioStream" id=7]
+[ext_resource path="res://data/elements/frog/switch2.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 300, 150 )
@@ -166,4 +167,8 @@ anims/RESET = SubResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+bus = "Effects"
+
+[node name="SwitchTrigger" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 bus = "Effects"

@@ -59,7 +59,7 @@ func back_to_main_menu():
 	free_level()
 
 func _unhandled_input(event) -> void:
-	if event.is_action_pressed("duality"):
+	if not current_level.empty() and event.is_action_pressed("duality"):
 		set_world('white' if world_color == 'black' else 'black')
 	elif event.is_action_pressed("game_menu") and current_level:
 		var gameMenus = get_tree().get_nodes_in_group('game menu')
@@ -86,6 +86,7 @@ func _unhandled_input(event) -> void:
 func set_world(color: String) -> void:
 	assert(color in ['white', 'black'])
 	set_world_with_modulate(color, DEFAULT_CHANGE_WORLD_DURATION)
+	$Sounds/Change2.play()
 
 func set_world_with_visibility(color: String) -> void:
 	var whiteNodes = get_tree().get_nodes_in_group('white')
@@ -171,3 +172,15 @@ func close_menu() -> void:
 	var menuNodes = get_tree().get_nodes_in_group('main menu')
 	for menuNode in menuNodes:
 		menuNode.queue_free()
+
+## main group methods
+func ui_button_focus_exited() -> void:
+	call_deferred('ui_button_focus_exited_deferred')
+
+func ui_button_focus_exited_deferred() -> void:
+	if $MenuNavigation/AcceptTimer.is_stopped():
+		$MenuNavigation/Menu.play()
+
+func ui_button_pressed() -> void:
+	$MenuNavigation/AcceptTimer.start()
+	$MenuNavigation/MenuClick.play()
